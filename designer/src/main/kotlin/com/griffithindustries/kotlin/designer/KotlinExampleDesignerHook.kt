@@ -2,6 +2,7 @@ package com.griffithindustries.kotlin.designer
 
 import com.griffithindustries.kotlin.common.*
 import com.inductiveautomation.ignition.common.licensing.*
+import com.inductiveautomation.ignition.common.script.hints.*
 import com.inductiveautomation.ignition.designer.model.*
 
 /**
@@ -10,7 +11,6 @@ import com.inductiveautomation.ignition.designer.model.*
 class KotlinExampleDesignerHook : AbstractDesignerModuleHook() {
     @Throws(Exception::class)
     override fun startup(context: DesignerContext, activationState: LicenseState) {
-        KotlinExampleModule.MODULE_ID
+        context.scriptManager.addScriptModule("system.excel", FastExcelWrapper, PropertiesFileDocProvider())
     }
-
 }

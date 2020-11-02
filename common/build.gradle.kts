@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.*
+
 plugins {
     kotlin("jvm") version "1.4.10"
     id("java-library")
@@ -11,4 +13,14 @@ dependencies {
     modlApi(kotlin("stdlib-jdk8"))
     modlApi(kotlin("stdlib-jdk7"))
     modlApi(kotlin("stdlib-common"))
+
+    modlApi("org.dhatim:fastexcel-reader:0.10.20")
+}
+
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+    }
 }
