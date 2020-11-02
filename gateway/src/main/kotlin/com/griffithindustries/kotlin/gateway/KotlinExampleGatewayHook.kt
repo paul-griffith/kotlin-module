@@ -26,24 +26,10 @@ class KotlinExampleGatewayHook : AbstractGatewayModuleHook() {
         context.scriptManager.addScriptModule("system.excel", FastExcelWrapper, PropertiesFileDocProvider())
     }
 
-    /**
-     * Called to initialize the module. Will only be called once. Persistence interface is available, but only in
-     * read-only mode.
-     */
     override fun startup(activationState: LicenseState) {}
 
-    /**
-     * Called to shutdown this module. Note that this instance will never be started back up - a new one will be created
-     * if a restart is desired
-     */
-    override fun shutdown() {
+    override fun shutdown() {}
 
-    }
-
-    /**
-     * @return `true` if this is a "free" module, i.e. it does not participate in the licensing system. This is
-     * equivalent to the now defunct FreeModule attribute that could be specified in module.xml.
-     */
     override fun isFreeModule(): Boolean = true
 
     override fun isMakerEditionCompatible() = true
