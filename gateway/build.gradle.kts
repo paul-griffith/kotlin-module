@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.*
-
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm")
     id("java-library")
 }
 
@@ -11,12 +9,4 @@ dependencies {
     val sdkVersion: String by project.parent!!.extra
     implementation("com.inductiveautomation.ignitionsdk", "ignition-common", sdkVersion)
     implementation("com.inductiveautomation.ignitionsdk", "gateway-api", sdkVersion)
-}
-
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
 }

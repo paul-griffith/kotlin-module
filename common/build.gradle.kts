@@ -1,7 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.*
-
 plugins {
-    kotlin("jvm") version "1.4.10"
+    kotlin("jvm")
     id("java-library")
 }
 
@@ -9,18 +7,5 @@ dependencies {
     val sdkVersion: String by project.parent!!.extra
     implementation("com.inductiveautomation.ignitionsdk", "ignition-common", sdkVersion)
 
-    modlApi(kotlin("stdlib"))
-    modlApi(kotlin("stdlib-jdk8"))
-    modlApi(kotlin("stdlib-jdk7"))
-    modlApi(kotlin("stdlib-common"))
-
     modlApi("org.dhatim:fastexcel-reader:0.10.20")
-}
-
-tasks {
-    withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
 }

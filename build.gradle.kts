@@ -1,4 +1,7 @@
+import org.jetbrains.kotlin.gradle.tasks.*
+
 plugins {
+    kotlin("jvm") version "1.4.10"
     id("io.ia.sdk.modl") version ("0.0.1-SNAPSHOT")
 }
 
@@ -26,3 +29,13 @@ ignitionModule {
 }
 
 tasks.getByName("signModule").enabled = false
+
+allprojects {
+    tasks {
+        withType<KotlinCompile> {
+            kotlinOptions {
+                jvmTarget = "11"
+            }
+        }
+    }
+}
